@@ -1,0 +1,18 @@
+[package]
+name = "longan"
+version = "0.1.0"
+authors = ["Leah <github.leah@hrmny.sh>"]
+edition = "2018"
+
+[dependencies]
+gd32vf103xx-hal = "0.3.0"
+riscv = "0.5.4"
+riscv-rt = "0.7.1"
+
+[dependencies.matrix]
+version = "*"
+path = "../matrix"
+
+[dependencies.longan-nano]
+version = "*"
+path = "../pkg/longan-nano"

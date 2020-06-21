@@ -1,0 +1,3 @@
+[submodule "pkg/longan-nano"]
+	path = pkg/longan-nano
+	url = git@github.com:riscv-rust/longan-nano.git

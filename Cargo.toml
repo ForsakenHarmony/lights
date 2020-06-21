@@ -1,0 +1,7 @@
+[workspace]
+members = [
+	"longan",
+	"matrix",
+	"stm",
+	"pkg/longan-nano"
+]
