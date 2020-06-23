@@ -1,7 +1,8 @@
 [workspace]
 members = [
-	"longan",
+#	"longan",
 	"matrix",
 	"stm",
-	"pkg/longan-nano"
+	"stm-rtic",
+#	"pkg/longan-nano"
 ]

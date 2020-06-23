@@ -155,7 +155,7 @@ impl<PINS: Outputs> Hub75<PINS> {
 	///
 	/// Takes some time and should be called quite often, otherwise the output
 	/// will flicker
-	pub fn output<DELAY: DelayUs<u8>>(&mut self, _delay: &mut DELAY) {
+	pub fn output<DELAY: DelayUs<u8>>(&mut self, delay: &mut DELAY) {
 		// Enable the output
 		// The previous last row will continue to display
 		// self.pins.oe().set_low().ok();
@@ -197,13 +197,15 @@ impl<PINS: Outputs> Hub75<PINS> {
 					}
 					// delay.delay_us(10);
 					self.pins.clk().set_high().ok();
-					// delay.delay_us(10);
+					delay.delay_us(1);
 					self.pins.clk().set_low().ok();
 					// delay.delay_us(10);
 				}
 				self.pins.oe().set_high().ok();
 
+				// delay.delay_us(2);
 				self.pins.lat().set_high().ok();
+				// delay.delay_us(2);
 				self.pins.lat().set_low().ok();
 				// delay.delay_us(5);
 				// Select row
