@@ -1,3 +1,6 @@
 [submodule "pkg/longan-nano"]
 	path = pkg/longan-nano
 	url = git@github.com:riscv-rust/longan-nano.git
+[submodule "pkg/stm32l4xx-hal"]
+	path = pkg/stm32l4xx-hal
+	url = git@github.com:stm32-rs/stm32l4xx-hal.git

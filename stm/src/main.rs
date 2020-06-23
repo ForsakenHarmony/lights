@@ -73,6 +73,7 @@ fn main() -> ! {
 
 	let mut flash = dp.FLASH.constrain();
 	let mut rcc = dp.RCC.constrain();
+	let mut pwr = dp.PWR.constrain(&mut rcc.apb1r1);
 
 	// TRY the other clock configuration
 	// let clocks = rcc.cfgr.freeze(&mut flash.acr);
@@ -81,7 +82,7 @@ fn main() -> ! {
 		.sysclk(80.mhz())
 		.pclk1(80.mhz())
 		.pclk2(80.mhz())
-		.freeze(&mut flash.acr);
+		.freeze(&mut flash.acr, &mut pwr);
 
 	let mut gpioa = dp.GPIOA.split(&mut rcc.ahb2);
 	let mut gpiob = dp.GPIOB.split(&mut rcc.ahb2);
@@ -166,6 +167,8 @@ fn TIM7() {
 	use_matrix(|matrix, delay| {
 		matrix.output(delay);
 	});
+	let dp = unsafe { hal::stm32::Peripherals::steal() };
+	dp.TIM7.sr.write(|w| w.uif().clear_bit());
 	// hprintln!("timer");
 }
 

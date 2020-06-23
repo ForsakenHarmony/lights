@@ -4,5 +4,6 @@ members = [
 	"matrix",
 	"stm",
 	"stm-rtic",
+	"pkg/stm32l4xx-hal"
 #	"pkg/longan-nano"
 ]
